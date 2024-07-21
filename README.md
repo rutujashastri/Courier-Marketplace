@@ -39,10 +39,6 @@ Courier service providers will communicate with their individual coordinating ag
   - Price
   - Delivery time availability
 
-## Go To Market Strategy
-
-Define a go-to-market strategy that is complete with hypotheses, projections, and analysis of the initial city (or set of cities) picked for launch. Include marketing tactics to bootstrap Consumers and Courier Service Providers. This needs to be executable to truly launch this marketplace.
-
 ### SOFTWARE Used
 
 - **Fetch Technologies**
