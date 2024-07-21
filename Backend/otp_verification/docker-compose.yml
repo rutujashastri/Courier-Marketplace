@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db_container
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_DB: courier-marketplace
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - docker_volume:/var/lib/postgresql/data
+
+  fastapi:
+    build: .
+    container_name: fastapi_container
+    ports:
+      - "8001:8001"
+    depends_on:
+      - postgres
+    environment:
+      TWILIO_ACCOUNT_SID: "ACf7c673f098935fbc462bf374eb171008"
+      TWILIO_AUTH_TOKEN: "c2ca8e6258b2c24ca679bfb3707a04f9"
+      VERIFY_SID: "VA84335596f4bb615705d4305781fa94ad"
+      DATABASE_URL: "postgresql://user:password@172.19.0.2:5432/courier-marketplace"
+
+volumes:
+  docker_volume:
